@@ -18,11 +18,6 @@ Modify `theme` setting in blog folder` _config.yml` to `arayzou_hexoTheme`.
 ```
 cd themes/arayzou_hexoTheme
 git pull
-```
-**please backup your `_config.yml` file before update.** 
-##Configuration
-
-```
 
 
 
