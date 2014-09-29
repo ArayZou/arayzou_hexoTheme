@@ -21,13 +21,15 @@
   section.post
     background color-section
     margin-bottom 0.125em
-    a
+    .article_item
       display block
       border-left 0.5em solid color-gray
       transition border-left .45s
       padding 0.5em
+      padding-bottom:0;
       @media mini
         padding 1em
+        padding-bottom:0;
       &:hover
         border-left 0.5em solid color-theme
       h1
@@ -35,10 +37,19 @@
         line-height line-height+0.5
       p
         color color-font
+      .readmore
+        text-align center
+        padding:0.5em 0 1em;
+        a
+          &:before,&:after
+            font: 1em FontAwesome;
+            padding: 14px;
+            vertical-align: middle;
+            content: '\f078';
       time
         color color-font
         display block
-        margin 0.5em 0
+        margin 0 0 0.5em 0
         font-size 0.5em
 
 .moveMain
