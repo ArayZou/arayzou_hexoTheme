@@ -1,8 +1,6 @@
 # arayzou_hexoTheme
 
-arayzou_hexoTheme based on Pacman
-
-arayzou_hexoTheme is a responsive design theme for [Hexo](http://hexo.io).
+基于[Pacman](https://github.com/A-limon/pacman)的一个[Hexo](http://hexo.io)主题
 
 [Demo](http://arayzou.com) || [ArayZou's Blog](http://arayzou.com)
 
@@ -18,7 +16,7 @@ Modify `theme` setting in blog folder` _config.yml` to `arayzou_hexoTheme`.
 ```
 cd themes/arayzou_hexoTheme
 git pull
-
+```
 
 
 
