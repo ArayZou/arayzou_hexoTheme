@@ -3,6 +3,7 @@
   overflow-x: auto;
   padding: 0.5em;
   background: #23241f;
+  border-radius: 4px;
   -webkit-text-size-adjust: none;
 }
 
