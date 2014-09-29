@@ -35,22 +35,25 @@ body
 
 #textlogo
   float left
-  width 75%
-  margin-left 0.5em
+  width 99%
+  padding-left 1%
   h1.site-name
     width 86%
     >a
       background url(../../img/logo.png) 0 16px no-repeat
-      padding-left 150px
     if ShowCustomFont
       font-family font-custom-family
-      font-size font-size+100
+      font-size font-size+160
       line-height line-height
       font-smoothing()
+      >a
+          padding-left 140px
       @media mini
-        font-size font-size+140
+        font-size font-size+160
       @media tablet
         font-size font-size+180
+        >a
+          padding-left 150px
     else
       font-family font-default
       font-size font-size+60
@@ -63,10 +66,11 @@ body
   h2.blog-motto
     font-size 0.7em
     font-weight normal
-    @media mini
+    font-size font-size+10
+    /*@media mini
       font-size font-size
     @media tablet
-      font-size font-size+10
+      font-size font-size+10*/
 
 .navbar
   position absolute
