@@ -56,8 +56,8 @@ html,body{
 }
 .grid_body .grid:hover{
     opacity: 0.2;
-    -webkit-transition:opacity .2s linear;
-    transition:opacity .2s linear;
+    -webkit-transition:opacity .1s linear;
+    transition:opacity .1s linear;
 }
 
 .grid_u .grid_1{
@@ -70,6 +70,21 @@ html,body{
     height: 100px;
     border-radius: 4px;
     background: #92C469;
+}
+.grid_u .grid_1:after{
+    position: absolute;
+    top:0;
+    left: 0;
+    display: none;
+    content: '';
+    width: 100px;
+    height: 100px;
+    border-radius: 4px;
+    background:#92C469 url(../img/icon_close.png) center no-repeat;
+}
+.grid_u.clicked .grid_1:hover:after{
+    display: block;
+    opacity: 1;
 }
 .grid_u .grid_b{
     display: none;
