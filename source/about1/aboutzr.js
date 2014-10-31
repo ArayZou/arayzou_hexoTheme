@@ -15,7 +15,7 @@ $(function(){
 
     //填充方块方法
     function fillInt(){
-        var Begin = new Date();
+        // var Begin = new Date();
 
         $gridU.show().find('.grid_b').hide();
 
@@ -46,15 +46,16 @@ $(function(){
         //定位所有内容格
         for (var u = 0;u < $gridU.length;u++){
             var uID = '#g_'+String(gridXYran[u]).split('.')[0]+'_'+String(gridXYran[u]).split('.')[1];
-            $gridU.eq(u).find('.grid_a').css({
+            $gridU.eq(u).find('.grid_a,.grid_con').css({
                 left:$(uID).offset().left,
                 top:$(uID).offset().top
-            }).show();
+            });
+            $gridU.eq(u).find('.grid_a').show();
             $gridU.eq(u).attr('data-p',gridXYran[u]);
         }
 
-        var Done = new Date();
-        console.log('fillInt function cost Time: '+(Done-Begin)+'ms');
+        // var Done = new Date();
+        // console.log('fillInt function cost Time: '+(Done-Begin)+'ms');
     }
     
     //移动或点击内容格
@@ -102,62 +103,96 @@ $(function(){
         e.stopPropagation();
         //没有做移动，打开展开格
         if($moveGrid&&!ifMove){
-            //内容格向周围散开的展现方式定位
-            $moveGrid.siblings('.grid_b').show();
-            var $this = $moveGrid;
-            var thisP = $this.parent().attr('data-p');
-            var thisPX = parseInt(String(thisP).split('.')[0]);
-            var thisPY = parseInt(String(thisP).split('.')[1]);
-            if($this.parent().hasClass('clicked')){
-                $this.parent().removeClass('clicked');
-                $this.siblings('.grid_b').css({
-                    left:$this.offset().left,
-                    top:$this.offset().top
-                });
-                $this.parent().siblings('.grid_u').show();
-            }else{
-                //找内容格周围可用单元格的坐标，这个没想到什么好方法。。。
-                //先按上左右下，上左，上右，下左，下右，上上，左左，右右，下下找12个，然后排除无用格
-                $this.parent().addClass('clicked');
-                $this.parent().siblings('.grid_u').hide();
-                //周围可以用单元格数组，JS小数加减有问题，只好用这种方法
-                var thisPX_L1 = thisPX-1;
-                var thisPX_L2 = thisPX-2;
-                var thisPX_R1 = thisPX+1;
-                var thisPX_R2 = thisPX+2;
-                var thisPY_T1 = thisPY-1;
-                var thisPY_T2 = thisPY-2;
-                var thisPY_B1 = thisPY+1;
-                var thisPY_B2 = thisPY+2;
-                var gridAroundXY = [];
-                gridAroundXY.push(thisPX+'.'+thisPY_T1);
-                gridAroundXY.push(thisPX_L1+'.'+thisPY);
-                gridAroundXY.push(thisPX_R1+'.'+thisPY);
-                gridAroundXY.push(thisPX+'.'+thisPY_B1);
-                gridAroundXY.push(thisPX_L1+'.'+thisPY_T1);
-                gridAroundXY.push(thisPX_R1+'.'+thisPY_T1);
-                gridAroundXY.push(thisPX_L1+'.'+thisPY_B1);
-                gridAroundXY.push(thisPX_R1+'.'+thisPY_B1);
-                gridAroundXY.push(thisPX+'.'+thisPY_T2);
-                gridAroundXY.push(thisPX_L2+'.'+thisPY);
-                gridAroundXY.push(thisPX_R2+'.'+thisPY);
-                gridAroundXY.push(thisPX+'.'+thisPY_B2);
-                //排除周围的无用格坐标，两数组求相同元素，要判断上千次，醉了，有更好的方法么
-                var thisGridUse = [];
-                for(var garo = 0;garo<gridAroundXY.length;garo++){
-                    for(var gall = 0;gall<gridXY.length;gall++){
-                        if(gridAroundXY[garo]==gridXY[gall]){
-                            thisGridUse.push(gridAroundXY[garo]);
-                            continue;
+            if($moveGrid.siblings('.grid_b').length>0){
+                //内容格向周围散开的展现方式定位
+                $moveGrid.siblings('.grid_b').show();
+                var $this = $moveGrid;
+                var thisP = $this.parent().attr('data-p');
+                var thisPX = parseInt(String(thisP).split('.')[0]);
+                var thisPY = parseInt(String(thisP).split('.')[1]);
+                if($this.parent().hasClass('clicked')){
+                    $this.parent().removeClass('clicked');
+                    $this.siblings('.grid_b').css({
+                        left:$this.offset().left,
+                        top:$this.offset().top
+                    });
+                    $this.parent().siblings('.grid_u').show();
+                }else{
+                    //找内容格周围可用单元格的坐标，这个没想到什么好方法。。。
+                    //先按上左右下，上左，上右，下左，下右，上上，左左，右右，下下找12个，然后排除无用格
+                    $this.parent().addClass('clicked');
+                    $this.parent().siblings('.grid_u').hide();
+                    //周围可以用单元格数组，JS小数加减有问题，只好用这种方法
+                    var thisPX_L1 = thisPX-1;
+                    var thisPX_L2 = thisPX-2;
+                    var thisPX_R1 = thisPX+1;
+                    var thisPX_R2 = thisPX+2;
+                    var thisPY_T1 = thisPY-1;
+                    var thisPY_T2 = thisPY-2;
+                    var thisPY_B1 = thisPY+1;
+                    var thisPY_B2 = thisPY+2;
+                    var gridAroundXY = [];
+                    gridAroundXY.push(thisPX+'.'+thisPY_T1);
+                    gridAroundXY.push(thisPX_L1+'.'+thisPY);
+                    gridAroundXY.push(thisPX_R1+'.'+thisPY);
+                    gridAroundXY.push(thisPX+'.'+thisPY_B1);
+                    gridAroundXY.push(thisPX_L1+'.'+thisPY_T1);
+                    gridAroundXY.push(thisPX_R1+'.'+thisPY_T1);
+                    gridAroundXY.push(thisPX_L1+'.'+thisPY_B1);
+                    gridAroundXY.push(thisPX_R1+'.'+thisPY_B1);
+                    gridAroundXY.push(thisPX+'.'+thisPY_T2);
+                    gridAroundXY.push(thisPX_L2+'.'+thisPY);
+                    gridAroundXY.push(thisPX_R2+'.'+thisPY);
+                    gridAroundXY.push(thisPX+'.'+thisPY_B2);
+                    //排除周围的无用格坐标，两数组求相同元素，要判断上千次，醉了，有更好的方法么
+                    var thisGridUse = [];
+                    for(var garo = 0;garo<gridAroundXY.length;garo++){
+                        for(var gall = 0;gall<gridXY.length;gall++){
+                            if(gridAroundXY[garo]==gridXY[gall]){
+                                thisGridUse.push(gridAroundXY[garo]);
+                                continue;
+                            }
                         }
                     }
+                    //定位展开格
+                    for(var gb=0;gb<$this.siblings('.grid_b').length;gb++){
+                        var uID = '#g_'+String(thisGridUse[gb]).split('.')[0]+'_'+String(thisGridUse[gb]).split('.')[1];
+                        $this.siblings('.grid_b').eq(gb).css({
+                            left:$(uID).offset().left,
+                            top:$(uID).offset().top
+                        });
+                    }
                 }
-                //定位展开格
-                for(var gb=0;gb<$this.siblings('.grid_b').length;gb++){
-                    var uID = '#g_'+String(thisGridUse[gb]).split('.')[0]+'_'+String(thisGridUse[gb]).split('.')[1];
-                    $this.siblings('.grid_b').eq(gb).css({
-                        left:$(uID).offset().left,
-                        top:$(uID).offset().top
+            }else if($moveGrid.siblings('.grid_con').length>0){
+                //内容格左侧定位展开大块内容的方式
+                var $this = $moveGrid;
+                if($this.parent().hasClass('clicked')){
+                    $this.parent().removeClass('clicked');
+                    $this.siblings('.grid_con').css({
+                        width:'0',
+                        height:'0'
+                    });
+                    $this.animate({
+                        left:$this.parent().attr('data-p').split('.')[0]*gridSize,
+                        top:$this.parent().attr('data-p').split('.')[1]*gridSize
+                    },300,function(){
+                        $this.parent().siblings('.grid_u').show();
+                    });
+                }else{
+                    $this.parent().addClass('clicked');
+                    $this.parent().siblings('.grid_u').hide();
+                    $this.animate({
+                        left:101,
+                        top:0
+                    },300);
+                    $this.siblings('.grid_con').animate({
+                        left:101,
+                        top:0
+                    },300,function(){
+                        $(this).animate({
+                            width:'303px',
+                            height:'303px'
+                        });
                     });
                 }
             }
@@ -254,13 +289,6 @@ $(function(){
             $moveGrid = '';
             ifMove = false;
         }
-    });
-
-    //hovar效果
-    $gridU.find('.grid_1').mouseenter(function(){
-
-    }).mouseleave(function(){
-
     });
 
     //resize后重新加载

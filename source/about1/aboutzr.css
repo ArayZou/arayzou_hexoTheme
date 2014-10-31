@@ -102,3 +102,14 @@ html,body{
 .grid_u.clicked .grid_b{
     transform:rotate(360deg); 
 }
+.grid_u .grid_con{
+    position: absolute;
+    left: -101px;
+    top: -101px;
+    z-index: 9;
+    border-radius: 4px;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    background: #fff;
+}
