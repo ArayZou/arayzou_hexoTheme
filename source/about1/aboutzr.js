@@ -3,6 +3,12 @@ $(function(){
     var $gridU = $('.grid_u');
     //有效格坐标数组
     var gridXY = [];
+        
+    var gridSize = 101;
+
+    //计算宽高各需要多少个格子，先向下取整，然后计算高度要+1
+    var bodyWidth = $(window).width()/gridSize>>0;
+    var bodyHeight = $(window).height()/gridSize>>0;
 
     //执行填充方块
     fillInt();
@@ -13,7 +19,6 @@ $(function(){
 
         $gridU.show().find('.grid_b').hide();
 
-        var gridSize = 101;
         //计算宽高各需要多少个格子，先向下取整，然后计算高度要+1
         var bodyWidth = $(window).width()/gridSize>>0;
         var bodyHeight = $(window).height()/gridSize>>0;
@@ -251,8 +256,22 @@ $(function(){
         }
     });
 
+    //hovar效果
+    $gridU.find('.grid_1').mouseenter(function(){
+
+    }).mouseleave(function(){
+
+    });
+
     //resize后重新加载
     $(window).resize(function(){
-        fillInt();
+        //计算宽高各需要多少个格子，先向下取整，格子数变化再执行fill
+        var windowWidth = $(window).width()/gridSize>>0;
+        var windowHeight = $(window).height()/gridSize>>0;
+        if(windowWidth!=bodyWidth||windowHeight!=bodyHeight){
+            bodyWidth=windowWidth;
+            bodyHeight=windowHeight;
+            fillInt();
+        }
     })  
 });
