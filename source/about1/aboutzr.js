@@ -1,3 +1,8 @@
+/*
+**  aboutJS
+**  
+
+*/
 $(function(){
     var $gridBody = $('.grid_body');
     var $gridU = $('.grid_u');
@@ -157,10 +162,10 @@ $(function(){
                     //定位展开格
                     for(var gb=0;gb<$this.siblings('.grid_b').length;gb++){
                         var uID = '#g_'+String(thisGridUse[gb]).split('.')[0]+'_'+String(thisGridUse[gb]).split('.')[1];
-                        $this.siblings('.grid_b').eq(gb).css({
+                        $this.siblings('.grid_b').eq(gb).animate({
                             left:$(uID).offset().left,
                             top:$(uID).offset().top
-                        });
+                        },gb*50);
                     }
                 }
             }else if($moveGrid.siblings('.grid_con').length>0){
@@ -190,8 +195,8 @@ $(function(){
                         top:0
                     },300,function(){
                         $(this).animate({
-                            width:'303px',
-                            height:'303px'
+                            width:$(this).attr('data-width'),
+                            height:$(this).attr('data-height')
                         });
                     });
                 }
