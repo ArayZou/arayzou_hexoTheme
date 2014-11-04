@@ -1,8 +1,12 @@
 /*
-**  aboutJS
-**  
-
-*/
+ * aboutzr page js
+ * by arayzou(邹瑞)
+ * https://github.com/ArayZou/arayzou_hexoTheme
+ * Requires jQuery 2.1.0
+ *
+ * Copyright 2014, arayzou
+ * http://arayzou.com
+ */
 $(function(){
     var $gridBody = $('.grid_body');
     var $gridU = $('.grid_u');
@@ -127,7 +131,7 @@ $(function(){
                     //先按上左右下，上左，上右，下左，下右，上上，左左，右右，下下找12个，然后排除无用格
                     $this.parent().addClass('clicked');
                     $this.parent().siblings('.grid_u').hide();
-                    //周围可以用单元格数组，JS小数加减有问题，只好用这种方法
+                    //周围可以用单元格数组，JS小数加减有问题，只好用这种方法，如果不够可以再加
                     var thisPX_L1 = thisPX-1;
                     var thisPX_L2 = thisPX-2;
                     var thisPX_R1 = thisPX+1;
@@ -306,5 +310,11 @@ $(function(){
             bodyHeight=windowHeight;
             fillInt();
         }
-    })  
+    });
+
+
+    //开发者console
+    console.log('%c','background:url(http://arayzou.qiniudn.com/personal/Aray1_sumiao.jpg);padding:43px 50px;line-height:100px;height:1px;border-radius:50px;background-size:100px 100px;')
+    console.log('邹瑞的前端博客：http://arayzou.com \n\n如果你遇到BUG或者对代码有建议，欢迎联系我~ \nQQ:4751738(邹瑞) \nE-mail:zrxldl@gmail.com');
+    console.log('本页面github地址：https://github.com/ArayZou/arayzou_hexoTheme');
 });
