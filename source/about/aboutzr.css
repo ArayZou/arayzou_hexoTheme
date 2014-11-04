@@ -81,7 +81,8 @@ html,body{
     border-radius: 4px;
     background: #92C469;
 }
-.grid_u .grid_1 span b{
+.grid_u .grid_1 span b,
+.grid_u .grid_b em{
     font-weight: normal;
     line-height: 16px;
     display: block;
