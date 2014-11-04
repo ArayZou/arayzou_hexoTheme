@@ -237,6 +237,10 @@ html,body{
   background: url(../img/about_icon/hobbies.png) center no-repeat;
   background-size: 100px 100px;
 }
+.grid_u .grid_message{
+  background: url(../img/about_icon/message.png) center no-repeat;
+  background-size: 100px 100px;
+}
 
 .grid_u .grid_b.grid_github{
   background: url(../img/about_icon/github.png) center no-repeat;
@@ -302,3 +306,4 @@ html,body{
   background: url(../img/about_icon/bicycle.png) center no-repeat;
   background-size: 100px 100px;
 }
+

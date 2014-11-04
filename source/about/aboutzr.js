@@ -76,9 +76,9 @@ $(function(){
     var downClientX = 0,
         downClientY = 0;
     $(document).mousedown(function (e){
-        e.preventDefault();
-        e.stopPropagation();
         if($(e.target).hasClass('grid_1')){
+            e.preventDefault();
+            e.stopPropagation();
             $moveGrid = $(e.target);
             // 鼠标点击位置和当前格的坐标差
             ifGridCanMove = $moveGrid.parent().hasClass('clicked')?false:true;
@@ -90,9 +90,9 @@ $(function(){
             downClientY = e.clientY;
         }
     }).mousemove(function (e){
-        e.preventDefault();
-        e.stopPropagation();
         if($moveGrid&&ifGridCanMove){
+            e.preventDefault();
+            e.stopPropagation();
             //左右移动超过5像素再计算移动
             if(Math.abs(e.clientX-downClientX)>5&&Math.abs(e.clientY-downClientY)>5){
                 $moveGrid.siblings('.grid_b').hide();
@@ -108,10 +108,10 @@ $(function(){
             }
         }
     }).mouseup(function (e){
-        e.preventDefault();
-        e.stopPropagation();
         //没有做移动，打开展开格
         if($moveGrid&&!ifMove){
+            e.preventDefault();
+            e.stopPropagation();
             if($moveGrid.siblings('.grid_b').length>0){
                 //内容格向周围散开的展现方式定位
                 $moveGrid.siblings('.grid_b').show();
