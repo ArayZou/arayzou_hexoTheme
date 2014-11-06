@@ -75,39 +75,51 @@ $(function(){
         ifGridCanMove = true;
     var downClientX = 0,
         downClientY = 0;
-    $(document).mousedown(function (e){
-        if($(e.target).hasClass('grid_1')){
+    $(document).on('mousedown touchstart',function (e){
+        if (e.type == 'touchstart') {
+            var eventObj = e.originalEvent.touches[0];
+        }else {
+            var eventObj = e;
+        }
+        if($(eventObj.target).hasClass('grid_1')){
             e.preventDefault();
             e.stopPropagation();
-            $moveGrid = $(e.target);
-            // 鼠标点击位置和当前格的坐标差
+            console.log(eventObj);
+            $moveGrid = $(eventObj.target);
+
+            
             ifGridCanMove = $moveGrid.parent().hasClass('clicked')?false:true;
-
-            moveGridLeft = e.offsetX,
-            moveGridTop = e.offsetY;
-
-            downClientX = e.clientX,
-            downClientY = e.clientY;
+            // 鼠标点击位置
+            downClientX = eventObj.clientX,
+            downClientY = eventObj.clientY;
+            // 鼠标点击位置和当前格的坐标差
+            moveGridLeft = downClientX-$moveGrid.position().left,
+            moveGridTop = downClientY-$moveGrid.position().top;
         }
-    }).mousemove(function (e){
+    }).on('mousemove touchmove',function (e){
+        if (e.type == 'touchmove') {
+            var eventObj = e.originalEvent.touches[0];
+        }else {
+            var eventObj = e;
+        }
         if($moveGrid&&ifGridCanMove){
             e.preventDefault();
             e.stopPropagation();
             //左右移动超过5像素再计算移动
-            if(Math.abs(e.clientX-downClientX)>5&&Math.abs(e.clientY-downClientY)>5){
+            if(Math.abs(eventObj.clientX-downClientX)>5&&Math.abs(eventObj.clientY-downClientY)>5){
                 $moveGrid.siblings('.grid_b').hide();
                 ifMove = true;
                 $moveGrid.css({
-                    left:e.clientX-moveGridLeft,
-                    top:e.clientY-moveGridTop,
+                    left:eventObj.clientX-moveGridLeft,
+                    top:eventObj.clientY-moveGridTop,
                     zIndex:999
                 }).siblings('.grid_b').css({
-                    left:e.clientX-moveGridLeft,
-                    top:e.clientY-moveGridTop
+                    left:eventObj.clientX-moveGridLeft,
+                    top:eventObj.clientY-moveGridTop
                 });
             }
         }
-    }).mouseup(function (e){
+    }).on('mouseup touchend touchcancel',function (e){
         //没有做移动，打开展开格
         if($moveGrid&&!ifMove){
             e.preventDefault();
@@ -128,7 +140,12 @@ $(function(){
                     $this.parent().siblings('.grid_u').show();
                 }else{
                     //找内容格周围可用单元格的坐标，这个没想到什么好方法。。。
-                    //先按上左右下，上左，上右，下左，下右，上上，左左，右右，下下找12个，然后排除无用格
+                    //先按上左右下，上左，上右，下左，下右，上上，左左，右右，下下找12个，然后排除无用格,再加12个,坐标如下
+                    //      21  13  9   14  22
+                    //      17  5   1   6   18
+                    //      10  2   格  3   11
+                    //      19  7   4   8   20
+                    //      23  15  12  16  24 
                     $this.parent().addClass('clicked');
                     $this.parent().siblings('.grid_u').hide();
                     //周围可以用单元格数组，JS小数加减有问题，只好用这种方法，如果不够可以再加
@@ -141,18 +158,30 @@ $(function(){
                     var thisPY_B1 = thisPY+1;
                     var thisPY_B2 = thisPY+2;
                     var gridAroundXY = [];
-                    gridAroundXY.push(thisPX+'.'+thisPY_T1);
-                    gridAroundXY.push(thisPX_L1+'.'+thisPY);
-                    gridAroundXY.push(thisPX_R1+'.'+thisPY);
-                    gridAroundXY.push(thisPX+'.'+thisPY_B1);
-                    gridAroundXY.push(thisPX_L1+'.'+thisPY_T1);
-                    gridAroundXY.push(thisPX_R1+'.'+thisPY_T1);
-                    gridAroundXY.push(thisPX_L1+'.'+thisPY_B1);
-                    gridAroundXY.push(thisPX_R1+'.'+thisPY_B1);
-                    gridAroundXY.push(thisPX+'.'+thisPY_T2);
-                    gridAroundXY.push(thisPX_L2+'.'+thisPY);
-                    gridAroundXY.push(thisPX_R2+'.'+thisPY);
-                    gridAroundXY.push(thisPX+'.'+thisPY_B2);
+                    gridAroundXY.push(thisPX+'.'+thisPY_T1);        //1
+                    gridAroundXY.push(thisPX_L1+'.'+thisPY);        //2
+                    gridAroundXY.push(thisPX_R1+'.'+thisPY);        //3
+                    gridAroundXY.push(thisPX+'.'+thisPY_B1);        //4
+                    gridAroundXY.push(thisPX_L1+'.'+thisPY_T1);     //5
+                    gridAroundXY.push(thisPX_R1+'.'+thisPY_T1);     //6
+                    gridAroundXY.push(thisPX_L1+'.'+thisPY_B1);     //7
+                    gridAroundXY.push(thisPX_R1+'.'+thisPY_B1);     //8
+                    gridAroundXY.push(thisPX+'.'+thisPY_T2);        //9
+                    gridAroundXY.push(thisPX_L2+'.'+thisPY);        //10
+                    gridAroundXY.push(thisPX_R2+'.'+thisPY);        //11
+                    gridAroundXY.push(thisPX+'.'+thisPY_B2);        //12
+                    gridAroundXY.push(thisPX_L1+'.'+thisPY_T2);     //13
+                    gridAroundXY.push(thisPX_R1+'.'+thisPY_T2);     //14
+                    gridAroundXY.push(thisPX_L1+'.'+thisPY_B2);     //15
+                    gridAroundXY.push(thisPX_R1+'.'+thisPY_B2);     //16
+                    gridAroundXY.push(thisPX_L2+'.'+thisPY_T1);     //17
+                    gridAroundXY.push(thisPX_R2+'.'+thisPY_T1);     //18
+                    gridAroundXY.push(thisPX_L2+'.'+thisPY_B1);     //19
+                    gridAroundXY.push(thisPX_R2+'.'+thisPY_B1);     //20
+                    gridAroundXY.push(thisPX_L2+'.'+thisPY_T2);     //21
+                    gridAroundXY.push(thisPX_R2+'.'+thisPY_T2);     //22
+                    gridAroundXY.push(thisPX_L2+'.'+thisPY_B2);     //23
+                    gridAroundXY.push(thisPX_R2+'.'+thisPY_B2);     //24
                     //排除周围的无用格坐标，两数组求相同元素，要判断上千次，醉了，有更好的方法么
                     var thisGridUse = [];
                     for(var garo = 0;garo<gridAroundXY.length;garo++){
@@ -190,8 +219,9 @@ $(function(){
                 }else{
                     $this.parent().addClass('clicked');
                     $this.parent().siblings('.grid_u').hide();
-                    var gridConLeft = bodyWidth<=3? 0:101;
-                    var gridConWidth = bodyWidth<=3? 303:$this.siblings('.grid_con').attr('data-width');
+                    var gridConLeft = bodyWidth<=4? 0:101;
+                    var gridConWidth = bodyWidth<=4? 101*bodyWidth:$this.siblings('.grid_con').attr('data-width');
+                    var gridConHeight = bodyWidth<=4?(bodyHeight-1)*101:$this.siblings('.grid_con').attr('data-width');
                     $this.animate({
                         left:gridConLeft,
                         top:0
@@ -203,7 +233,7 @@ $(function(){
                     },300,function(){
                         $(this).animate({
                             width:gridConWidth,
-                            height:$(this).attr('data-height')
+                            height:gridConHeight
                         });
                     });
                 }
