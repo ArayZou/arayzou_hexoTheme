@@ -190,16 +190,19 @@ $(function(){
                 }else{
                     $this.parent().addClass('clicked');
                     $this.parent().siblings('.grid_u').hide();
+                    var gridConLeft = bodyWidth<=3? 0:101;
+                    var gridConWidth = bodyWidth<=3? 303:$this.siblings('.grid_con').attr('data-width');
                     $this.animate({
-                        left:101,
+                        left:gridConLeft,
                         top:0
-                    },300);
+                    },300);  
+
                     $this.siblings('.grid_con').animate({
-                        left:101,
+                        left:gridConLeft,
                         top:0
                     },300,function(){
                         $(this).animate({
-                            width:$(this).attr('data-width'),
+                            width:gridConWidth,
                             height:$(this).attr('data-height')
                         });
                     });
