@@ -170,7 +170,7 @@ html,body{
     font-size: 14px;
     line-height: 20px;
     text-align: center;
-    position: relative;
+    position: absolute;
     display: block;
     color: #fff;
     width: 100px;
