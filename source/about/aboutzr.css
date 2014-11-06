@@ -103,7 +103,7 @@ html,body{
     width: 100px;
     height: 100px;
     border-radius: 4px;
-    background:rgba(0,0,0,0.25) url(../img/about_icon/close.png) center no-repeat;
+    background:rgba(0,0,0,0.25) url(http://arayzou.qiniudn.com/about_icon/close.png) center no-repeat;
     background-size: 100px 100px;
 }
 .grid_u.clicked .grid_1:hover:after{
@@ -214,96 +214,96 @@ html,body{
 
 /*icon*/
 .grid_u .grid_share{
-  background: url(../img/about_icon/share.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/share.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_personal{
-  background: url(../img/about_icon/author.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/author.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_follow{
-  background: url(../img/about_icon/follow.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/follow.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_skill{
-  background: url(../img/about_icon/skill.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/skill.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_contact{
-  background: url(../img/about_icon/contact.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/contact.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_hobbies{
-  background: url(../img/about_icon/hobbies.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/hobbies.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_message{
-  background: url(../img/about_icon/message.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/message.png) center no-repeat;
   background-size: 100px 100px;
 }
 
 .grid_u .grid_b.grid_github{
-  background: url(../img/about_icon/github.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/github.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_facebook{
-  background: url(../img/about_icon/facebook.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/facebook.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_gplus{
-  background: url(../img/about_icon/gplus.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/gplus.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_linkedin{
-  background: url(../img/about_icon/linkedin.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/linkedin.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_movie{
-  background: url(../img/about_icon/movie.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/movie.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_pcgames{
-  background: url(../img/about_icon/games.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/games.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_email{
-  background: url(../img/about_icon/gmail.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/gmail.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_twitter{
-  background: url(../img/about_icon/twitter.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/twitter.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_weixin{
-  background: url(../img/about_icon/weixin.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/weixin.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_sina{
-  background: url(../img/about_icon/sina.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/sina.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_renren{
-  background: url(../img/about_icon/renren.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/renren.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_sina{
-  background: url(../img/about_icon/sina.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/sina.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_tweibo{
-  background: url(../img/about_icon/tweibo.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/tweibo.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_qqzone{
-  background: url(../img/about_icon/qqzone.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/qqzone.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_qq{
-  background: url(../img/about_icon/qq.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/qq.png) center no-repeat;
   background-size: 100px 100px;
 }
 .grid_u .grid_b.grid_bicycle{
-  background: url(../img/about_icon/bicycle.png) center no-repeat;
+  background: url(http://arayzou.qiniudn.com/about_icon/bicycle.png) center no-repeat;
   background-size: 100px 100px;
 }
 
