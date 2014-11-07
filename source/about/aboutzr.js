@@ -243,7 +243,7 @@ $(function(){
         }
         //做了移动，直接移动内容格
         else if(ifMove){
-            //获取鼠标松开时内容格中心点的坐标，并判断此坐标所在的背景格是否为有效格，若是直接定位到它上面，若不是则在它周围寻找有效格,无效格只会在右下，所以只要向左便宜一格或者向上偏移一格就可以
+            //获取鼠标松开时内容格中心点的坐标，并判断此坐标所在的背景格是否为有效格，若是直接定位到它上面，若不是则在它周围寻找有效格,无效格只会在右下，所以只要向左便移一格或者向上偏移一格就可以，并判断左和上是否已经存在内容格，有则再判断
             var uIDX = ($moveGrid.offset().left+50)/101>>0,
                 uIDY = ($moveGrid.offset().top+50)/101>>0;
             var uGridXY = uIDX+'.'+uIDY,
@@ -290,27 +290,27 @@ $(function(){
                     uIDY = uIDY-1;
                     uGridXY = uIDX+'.'+uIDY;
                 }
-            }else{
-                //如果是有效格，再判断当前有效格有没有存在内容格,如果已经有内容格了，返回原位
-                for(var ug=0;ug<$moveGrid.parent().siblings('.grid_u').length;ug++){
-                    if(uGridXY==$moveGrid.parent().siblings('.grid_u').eq(ug).attr('data-p')){
-                        var uID = '#g_'+String($moveGrid.parent().attr('data-p')).split('.')[0]+'_'+String($moveGrid.parent().attr('data-p')).split('.')[1];
-                        $moveGrid.animate({
-                            left:$(uID).offset().left,
-                            top:$(uID).offset().top
-                        },300).css({
-                            zIndex:10
-                        }).siblings('.grid_b').animate({
-                            left:$(uID).offset().left,
-                            top:$(uID).offset().top
-                        },function(){
-                            $(this).show();
-                        });
-                        //清空对象
-                        $moveGrid = '';
-                        ifMove = false;
-                        return false;
-                    }
+            }
+
+            //再判断此时的uGridXY坐标的有效格有没有存在内容格,如果已经有内容格了，返回原位
+            for(var ug=0;ug<$moveGrid.parent().siblings('.grid_u').length;ug++){
+                if(uGridXY==$moveGrid.parent().siblings('.grid_u').eq(ug).attr('data-p')){
+                    var uID = '#g_'+String($moveGrid.parent().attr('data-p')).split('.')[0]+'_'+String($moveGrid.parent().attr('data-p')).split('.')[1];
+                    $moveGrid.animate({
+                        left:$(uID).offset().left,
+                        top:$(uID).offset().top
+                    },300).css({
+                        zIndex:10
+                    }).siblings('.grid_b').animate({
+                        left:$(uID).offset().left,
+                        top:$(uID).offset().top
+                    },function(){
+                        $(this).show();
+                    });
+                    //清空对象
+                    $moveGrid = '';
+                    ifMove = false;
+                    return false;
                 }
             }
 
