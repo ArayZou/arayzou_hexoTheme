@@ -50,6 +50,7 @@ $(document).ready(function(){
   });
 });
 </script>
+
 <% if (is_post()) { %>
 <script type="text/javascript">
 $(document).ready(function(){ 
@@ -83,6 +84,7 @@ $(document).ready(function(){
 });
 </script>
 <% } %>
+
 <% if ((page.layout=='post'||page.layout=='page')&&!theme.jiathis.enable) { %>
 <script type="text/javascript">
 $(document).ready(function(){ 
@@ -112,6 +114,7 @@ $(document).ready(function(){
 });     
 </script>
 <% } %>
+
 <% if ((page.layout=='post'||page.layout=='page')&&theme.duoshuo.enable && page.comments){ %>
 <script type="text/javascript">
   var duoshuoQuery = {short_name:"<%= theme.duoshuo.short_name %>"};
@@ -125,6 +128,7 @@ $(document).ready(function(){
   })();
 </script> 
 <% } %>
+
 <% if (page.layout=='tags'||page.layout=='categories'){ %>
 <script type="text/javascript">
 $(document).ready(function(){ 
@@ -144,6 +148,7 @@ $(document).ready(function(){
   }); 
 </script>
 <% } %>
+
 <% if ((page.layout=='post'||page.layout=='page')&&theme.fancybox){ %>
 <link rel="stylesheet" href="<%- config.root %>fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="<%- config.root %>fancybox/jquery.fancybox.pack.js"></script>
@@ -166,4 +171,3 @@ $(document).ready(function(){
 }); 
 </script>
 <% } %>
-<%- partial('google_analytics') %>

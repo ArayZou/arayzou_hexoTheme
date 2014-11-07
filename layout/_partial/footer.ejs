@@ -25,11 +25,11 @@
 		<a href="https://www.facebook.com/<%=theme.author.facebook %>" target="_blank" title="facebook"></a>
 		<% } %>
 	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/ArayZou/arayzou_hexoTheme" target="_blank" title="ArayZou">ArayZou</a> © <%= new Date().getFullYear() %> 
-		<% if (config.author) { %>
+	<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/ArayZou/arayzou_hexoTheme" target="_blank" title="arayzou_hexoTheme">arayzou_hexoTheme</a> © <%= new Date().getFullYear() %> 
+	<% if (config.author) { %>
 		<a href="<%= config.url %>" target="_blank" title="<%= config.author %>"><%= config.author %></a>
 		<% } else {%>
 		<a href="<%= config.url %>" title="<%= config.title %>"><%= config.title %></a>
 		<% } %>
-		</p>
+	</p>
 </div>

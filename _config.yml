@@ -78,14 +78,6 @@ jiathis:
   id:    ## e.g. 1501277 your jiathis ID. 
   tsina: ## e.g. 1664838973 Your weibo id,It will be used in share button.
 
-#### Analytics
-google_analytics:
-  enable: false
-  id:   ## e.g. UA-1766729-8 your google analytics ID.
-  site: ## e.g. yangjian.me your google analytics site or set the value as auto.
-## You MUST upgrade to Universal Analytics first!
-## https://developers.google.com/analytics/devguides/collection/upgrade/?hl=zh_CN
-
 #### Custom Search
 google_cse: 
   enable: false
