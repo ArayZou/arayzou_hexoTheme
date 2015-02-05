@@ -81,6 +81,8 @@
   color: #cccccc;
   padding: 0.5em;
   -webkit-text-size-adjust: none;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 
 .coffeescript .javascript,
