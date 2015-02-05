@@ -1,7 +1,7 @@
 .post,.page
   background color-section
   a
-    color color-blue 
+    color color-blue
     &:hover
       color color-theme
 
@@ -9,14 +9,15 @@ article
   header.article-info
     @media mini
       border-bottom 1px solid lighten(color-gray,30%)
-    >h1
+    >h1.article-title
+      color color-blue
       padding 0.2em 3%
       font-size font-size+70
       line-height line-height
       @media tablet
         font-size font-size+100
         padding-top 0.3em
-      word-wrap break-word 
+      word-wrap break-word
       word-break normal
       font-smoothing antialiased
       border-left 5px solid color-theme
@@ -26,6 +27,8 @@ article
       border-bottom 1px solid lighten(color-gray,30%)
       @media mini
         float right
+        padding: 0 4% 0 0
+        line-height 28px
         border-bottom none
     >p.article-time
       padding-top 0.5em
@@ -34,16 +37,17 @@ article
       @media mini
         float right
         margin-right 1em
-        padding-top 0.1em
+        padding-top 0
+        line-height 28px
         font-size 0.9em
       &:before
         font-family font-icon-family
         font-size font-size+30
         content "\f017"
-        font-smoothing()      
+        font-smoothing()
   .article-content
     padding 1.5em 4%
-    .kb      
+    .kb
       padding .1em .6em
       border 1px solid color-gray
       background-color code-color
@@ -55,11 +59,20 @@ article
       text-shadow 0 1px 0 color-white
       line-height line-height
       white-space nowrap
-    h1,h2
+    h1
+      font-size font-size+100
+      line-height 1.2em
+    h2
       font-size font-size+80
       line-height 1.2em
-    h3,h4,h5,h6
+    h3
+      font-size font-size+60
+    h4
       font-size font-size+40
+    h5
+      font-size font-size+20
+    h6
+      font-size font-size
     h1,h2,h3,h3,h4,h5,h6
       color color-heading
       font-smoothing antialiased
@@ -67,7 +80,7 @@ article
       margin 0.5em 0
       >code
         color darken(color-gray,20%)
-    hr 
+    hr
       border 1px solid lighten(color-gray,30%)
     strong
       font-weight bold
@@ -77,8 +90,8 @@ article
       border-bottom 1px dotted
     blockquote
       border-left .2em solid color-theme
-      margin 0.65em 0 0.65em 4%
-      padding-left 1%
+      margin 0.65em 0 0.65em 15px
+      padding-left 10px
       line-height line-height
       font-size font-size+10
       footer
@@ -91,10 +104,10 @@ article
         font-style italic
         padding-left 0.5em
     ul,ol
-      padding-left 2em
+      margin-left 20px
       font-size font-size+5
       @media mini
-        padding-left 3em
+        padding-left 10px
     ul li
       list-style disc
       text-align match-parent
@@ -127,7 +140,7 @@ article
       height auto
       vertical-align middle
       padding-top 0.5em
-      @media tablet 
+      @media tablet
         padding-top 0.7em
     figcaption,.caption
       text-align center
@@ -154,7 +167,7 @@ article
         font-weight bold
         border-bottom 3px solid lighten(color-gray,30%)
         padding-bottom 0.5em
-      td 
+      td
         border-bottom 1px solid lighten(color-gray,30%)
         padding 10px 0
     .pullquote

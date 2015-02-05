@@ -1,8 +1,8 @@
 <section class="<%= item.layout %>" itemscope itemprop="blogPost">
   <div class="article_item">
-    <h1 itemprop="name">
-      <% if (item.link) { %> 
-        <a href="<%- item.link %>" target="_blank"> 
+    <h1 class="article_title" itemprop="name">
+      <% if (item.link) { %>
+        <a href="<%- item.link %>" target="_blank">
       <% } else{ %>
         <a href="<%- config.root %><%- item.path %>" title="<%= item.title %>" itemprop="url">
       <% } %>
@@ -20,8 +20,8 @@
         <% } %>
     <% } %>
     <p class="readmore">
-      <% if (item.link) { %> 
-        <a href="<%- item.link %>" target="_blank"> 
+      <% if (item.link) { %>
+        <a href="<%- item.link %>" target="_blank">
       <% } else{ %>
         <a href="<%- config.root %><%- item.path %>" title="<%= item.title %>" itemprop="url">
       <% } %>

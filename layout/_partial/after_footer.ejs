@@ -1,28 +1,22 @@
 <script src="<%- config.root %>js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript" src="<%- config.root %>js/highlight.min.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
   //highcode
   $('pre code').each(function(i, block) {
     hljs.highlightBlock(block);
   });
+  //导航，侧边栏
   $('.navbar').click(function(){
     $('header nav').toggleClass('shownav');
   });
   var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
   var m = $('#main'),
       a = $('#asidepart'),
       c = $('.closeaside'),
       o = $('.openaside');
   $(window).resize(function(){
-    getSize(); 
+      myWidth = $(document).width();
     if (myWidth >= 1024) {
       $('header nav').removeClass('shownav');
     }else
@@ -32,7 +26,7 @@ $(document).ready(function(){
       o.css('display', 'none');
       <% if( is_post()&&(page.toc !== false) && theme.toc.aside){ %>
       $('#toc.toc-aside').css('display', 'none');
-      <% } %>  
+      <% } %>
     }
   });
   c.click(function(){
@@ -42,7 +36,7 @@ $(document).ready(function(){
   });
   o.click(function(){
     o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');
     m.removeClass('moveMain');
   });
   $(window).scroll(function(){
@@ -53,7 +47,7 @@ $(document).ready(function(){
 
 <% if (is_post()) { %>
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
   var ai = $('.article-content>iframe'),
       ae = $('.article-content>embed'),
       t  = $('#toc'),
@@ -87,7 +81,7 @@ $(document).ready(function(){
 
 <% if ((page.layout=='post'||page.layout=='page')&&!theme.jiathis.enable) { %>
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
   var $this = $('.share'),
       url = $this.attr('data-url'),
       encodedUrl = encodeURIComponent(url),
@@ -111,7 +105,7 @@ $(document).ready(function(){
         $('.qrcode strong').text(' ');
     });
   });
-});     
+});
 </script>
 <% } %>
 
@@ -123,15 +117,15 @@ $(document).ready(function(){
     ds.type = 'text/javascript';ds.async = true;
     ds.src = '//static.duoshuo.com/embed.js';
     ds.charset = 'UTF-8';
-    (document.getElementsByTagName('head')[0] 
+    (document.getElementsByTagName('head')[0]
     || document.getElementsByTagName('body')[0]).appendChild(ds);
   })();
-</script> 
+</script>
 <% } %>
 
 <% if (page.layout=='tags'||page.layout=='categories'){ %>
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
   var list    = $('.archive-title a'),
       box     = $('.all-list-box'),
       first   = $('.archive-title a:first-of-type');
@@ -143,9 +137,9 @@ $(document).ready(function(){
       box.load(listSrc);
       list.removeClass('current');
       $(this).addClass('current');
-     });  
+     });
     });
-  }); 
+  });
 </script>
 <% } %>
 
@@ -153,7 +147,7 @@ $(document).ready(function(){
 <link rel="stylesheet" href="<%- config.root %>fancybox/jquery.fancybox.css" media="screen" type="text/css">
 <script src="<%- config.root %>fancybox/jquery.fancybox.pack.js"></script>
 <script type="text/javascript">
-$(document).ready(function(){ 
+$(document).ready(function(){
   $('.article-content').each(function(i){
     $(this).find('img').each(function(){
       if ($(this).parent().hasClass('fancybox')) return;
@@ -168,6 +162,6 @@ $(document).ready(function(){
   if($.fancybox){
     $('.fancybox').fancybox();
   }
-}); 
+});
 </script>
 <% } %>

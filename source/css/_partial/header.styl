@@ -4,7 +4,7 @@ body
     box-shadow 2px 4px 5px hsla(0,1%,1%,.2)
     background color-theme
     color color-white
-    padding 1em 0 0.8em 
+    padding 1em 0 0.8em
     @media tablet
       padding 1.8em 0 1.5em
     >div
@@ -41,19 +41,23 @@ body
     width 86%
     >a
       background url(../../img/logo.png) 0 16px no-repeat
+      background-size 122px 44px
     if ShowCustomFont
       font-family font-custom-family
-      font-size font-size+160
+      font-size font-size+100
       line-height line-height
       font-smoothing()
       >a
-          padding-left 140px
+        display block
+        height 66px
+        line-height 66px
+        padding-left 130px
       @media mini
         font-size font-size+160
+        >a
+            padding-left 140px
       @media tablet
         font-size font-size+180
-        >a
-          padding-left 150px
     else
       font-family font-default
       font-size font-size+60
@@ -91,7 +95,7 @@ body
   padding-left 1em
 
 header nav
-  float left    
+  float left
   width 100%
   @media phone
     width 50%
@@ -122,14 +126,14 @@ header nav
   max-height 40em
 
 .search
-  padding 0.1em 0 0 1em
   input
-    line-height line-height+0.2
+    height 16px
+    line-height 16px
+    padding: 2px 8px
     border 1px solid color-white
     color color-white
-    background transparent
+    background center
     width 80%
-    padding-left 0.5em
     @media tablet
       width 8em
       transition .5s width
