@@ -32,7 +32,8 @@
     <% } else if (page.content){ %>
     <meta name="description" content="<%= strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150) %>">
     <% } %>
-    <% if (page.keywords){ %><meta name="keywords" content="<%= page.keywords %>"><% } %>
+    <meta name="keywords" content="邹瑞,arayzou,前端,前端开发,HTHML5,JAVASCRIPT,CSS3,NODEJS,博客,blog">
+    <!-- <% if (page.keywords){ %><meta name="keywords" content="<%= page.keywords %>"><% } %> -->
     <% if (theme.author.twitter){ %>
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="<%= theme.author.twitter %>" />
