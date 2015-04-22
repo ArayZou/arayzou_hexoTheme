@@ -19,7 +19,7 @@
     title = 'Tag: ' + page.tag;
   }
   %>
-    <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+    <title><% if (title){ %><%= title %> | <% } %><%= config.titleSeo %></title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     <% if (config.author){ %>
     <meta name="author" content="<%= config.author %>"><% } %>
@@ -32,8 +32,8 @@
     <% } else if (page.content){ %>
     <meta name="description" content="<%= strip_html(page.content).replace(/^\s*/, '').replace(/\s*$/, '').substring(0, 150) %>">
     <% } %>
-    <meta name="keywords" content="邹瑞,arayzou,前端,前端开发,HTHML5,JAVASCRIPT,CSS3,NODEJS,博客,blog">
-    <!-- <% if (page.keywords){ %><meta name="keywords" content="<%= page.keywords %>"><% } %> -->
+    <!-- <meta name="keywords" content="邹瑞,arayzou,前端,前端开发,HTHML5,JAVASCRIPT,CSS3,NODEJS,博客,blog"> -->
+    <meta name="keywords" content="邹瑞,arayzou,前端,前端开发,HTHML5,JAVASCRIPT,CSS3,NODEJS,博客,blog,<% if (page.keywords){ %><%= page.keywords %><% } %>">
     <% if (theme.author.twitter){ %>
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="<%= theme.author.twitter %>" />
