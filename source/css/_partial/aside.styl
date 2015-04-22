@@ -64,13 +64,22 @@
     width 100%
     float none
     margin 1em 0 0
-  li
+  .cate-list>.cate-list-item
     border-bottom 1px solid color-gray
-    a
-      display block
-      padding 0.5em 5%
-      &:hover
-        color color-theme
+    display block
+    padding 0.5em 5%
+    .cate-list-link
+      padding 0 10px 0 0
+    .cate-list-link:hover
+      color color-theme
+    .cate-list-count
+      font-size 12px
+    .cate-list-child
+      padding 0 0 0 2em
+      .cate-list-item
+        list-style: disc;
+        padding: 0.5em 0;
+
 
 //tag
 .tagslist

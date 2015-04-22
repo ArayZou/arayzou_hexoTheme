@@ -1,10 +1,9 @@
 <% if (site.categories.length){ %>
 <div class="categorieslist">
 	<p class="asidetitle"><%= __('categories') %></p>
-		<ul class="clearfix">
-		<% site.categories.sort('name').each(function(item){ %>
-			<li><a href="<%- config.root %><%- item.path %>" title="<%= item.name %>"><%= item.name %><sup><%= item.posts.length %></sup></a></li>
-		<% }); %>
-		</ul>
+  <%- list_categories({
+    orderby:'num',
+    class:'cate'
+  }) %>
 </div>
 <% } %>
